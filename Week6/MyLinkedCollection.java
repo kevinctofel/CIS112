@@ -35,22 +35,23 @@ public class MyLinkedCollection<T> extends LinkedCollection<T> {
 
    public void removeAll(T target) {
       
-      LLNode<T> index = head;
+      location = head;
             
-        if (head == index && (index.getInfo().equals(target))) { 
+        if (head == location && (head.getInfo().equals(target))) { 
             head = head.getLink();    // remove first node
             numElements--;
         }
 
-        while (index != null) 
+        while (location != null) 
             {
-               if (index.getInfo().equals(target)) { // if they match 
-                  previous.setLink(index.getLink()); // remove node at location
+               if (location.getInfo().equals(target)) { // if they match 
+                  previous.setLink(location.getLink()); // remove node at location
+                  location = location.getLink();
                   numElements--;
                   }
                else {
-                  previous = index;
-                  index = index.getLink();
+                  previous = location;
+                  location = location.getLink();
                 }   
         }   
    
