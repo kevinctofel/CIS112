@@ -57,10 +57,27 @@ public class MyLinkedCollection<T> extends LinkedCollection<T> {
    
    }
    
-//    public LinkedCollection<T> combine(LinkedCollection<T> other) {
-//    
-//       LinkedCollection<T> elements;
-//       return elements;
-//    }
+   public MyLinkedCollection<T> combine(MyLinkedCollection<T> other) {
+   
+      MyLinkedCollection<T> combined;
+      combined = new MyLinkedCollection<T>(); // This will be the combined collection
+      
+      LLNode<T> first = this.head; // This is a holder to iterate through the first collection
+      LLNode<T> second = other.head; // This is a holder to iterate through the other collection
+      
+      while (first.getLink() != null) {
+         combined.add(first.getInfo());
+         first = first.getLink();
+      }
+         combined.add(first.getInfo()); // Accounting for the last node
+      
+      while (second.getLink() != null) {
+         combined.add(second.getInfo());
+         second = second.getLink();
+      }
+         combined.add(second.getInfo()); // Accounting for the last node
+         
+      return combined;
+   }
 
 }
