@@ -1,0 +1,62 @@
+Problem 48 results of different "k" values:
+
+The height of random tree with 10.0 percent of values having 42 is: 103
+The optimal hieght of this tree is: 9
+The fullness ratio of this tree is: 0.08737864077669903
+
+The height of random tree with 33.0 percent of values having 42 is: 331
+The optimal hieght of this tree is: 9
+The fullness ratio of this tree is: 0.027190332326283987
+
+The height of random tree with 50.0 percent of values having 42 is: 518
+The optimal hieght of this tree is: 9
+The fullness ratio of this tree is: 0.017374517374517374
+
+The height of random tree with 75.0 percent of values having 42 is: 763
+The optimal hieght of this tree is: 9
+The fullness ratio of this tree is: 0.011795543905635648
+
+As more nodes with the same value are added, the fullness ratio clearly decreases because these nodes generate a new level of depth for the BST. To increase fullness, one could use the fRatio method as a checkpoint when each new node is generated. If the new node would lower the fullness ratio by a given threshold, the application could then generate a different new node and re-check the fullness ratio until the desired ratio is above the threshold. Note: I was suprised by the close correlation between the percentage of nodes having 42 as their value and the BST height, although I shouldn't have been based on the previously stated observation.
+
+
+
+Problem 49 results:
+
+The height of random tree with 10.0 percent of values having 42 is: 82
+The optimal hieght of this tree is: 9
+The fullness ratio of this tree is: 0.10975609756097561
+
+The height of random tree with 20.0 percent of values having 42 is: 202
+The optimal hieght of this tree is: 9
+The fullness ratio of this tree is: 0.04455445544554455
+
+The height of random tree with 30.0 percent of values having 42 is: 323
+The optimal hieght of this tree is: 9
+The fullness ratio of this tree is: 0.02786377708978328
+
+The height of random tree with 40.0 percent of values having 42 is: 386
+The optimal hieght of this tree is: 9
+The fullness ratio of this tree is: 0.023316062176165803
+
+The height of random tree with 50.0 percent of values having 42 is: 493
+The optimal hieght of this tree is: 9
+The fullness ratio of this tree is: 0.018255578093306288
+
+The height of random tree with 60.0 percent of values having 42 is: 632
+The optimal hieght of this tree is: 9
+The fullness ratio of this tree is: 0.014240506329113924
+
+The height of random tree with 70.0 percent of values having 42 is: 681
+The optimal hieght of this tree is: 9
+The fullness ratio of this tree is: 0.013215859030837005
+
+The height of random tree with 80.0 percent of values having 42 is: 818
+The optimal hieght of this tree is: 9
+The fullness ratio of this tree is: 0.011002444987775062
+
+The height of random tree with 90.0 percent of values having 42 is: 919
+The optimal hieght of this tree is: 9
+The fullness ratio of this tree is: 0.009793253536452665
+
+There are plenty of situations where stored information is "uneven", although this doesn't solely apply to trees. We could be storing temperatures or zip codes, for example. These are examples of "shared" data points across many people. Test grades are another example. While we wouldn't be able to tie the grades to individuals, we might use a BST filled with grades to determine how many students earned a particular grade or a range of grades. If the bulk of the class earned a grade of 80 to 89, for example, the tree would be skewed or uneven.
+
