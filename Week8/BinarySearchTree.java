@@ -305,7 +305,7 @@ public class BinarySearchTree<T> implements BSTInterface<T>
                                      " in BinarySearchTree iterator.\n");
         return infoQueue.dequeue();
       }
-
+      
       public void remove()
       // Throws UnsupportedOperationException.
       // Not supported. Removal from snapshot iteration is meaningless.

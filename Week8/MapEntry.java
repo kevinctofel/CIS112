@@ -5,11 +5,12 @@
 // Keys are immutable.
 //---------------------------------------------------------------------------
 // package ch08.maps;
+import java.util.*;
 
-public class MapEntry<K,V> implements Comparable<MapEntry<K,V>>
+public class MapEntry<K, V> implements Comparable<MapEntry<K, V>>
 {
-  protected K key;
-  protected V value;
+  public K key;
+  public V value;
   
   MapEntry(K k, V v)
   {
@@ -25,18 +26,13 @@ public class MapEntry<K,V> implements Comparable<MapEntry<K,V>>
   // Returns a string representing this MapEntry.
   {
     return "Key  : " + key + "\nValue: " + value;
-  }
+  } // end toString()
   
-  public int compareTo(MapEntry< K , V > other)
+  public int compareTo(MapEntry<K, V> other)
   {
-    // *********
-    // I'm not a fan of inline casts so I broke this out into 2 lines
-    // Note how we reference only the keys here.
-    //
     Comparable c = (Comparable) (key);
     return c.compareTo(other.getKey());
-   }
-
-
-}
+  
+  } // end compareTo
+} // end MapEntry
  
