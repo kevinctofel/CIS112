@@ -8,7 +8,7 @@
 // method.
 //----------------------------------------------------------------------
 
-package support;
+// package support;
 
 import java.util.Comparator;
 
