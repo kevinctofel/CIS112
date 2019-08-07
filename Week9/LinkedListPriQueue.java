@@ -68,10 +68,10 @@ public class LinkedListPriQueue<T> implements PriQueueInterface<T>
          temp = priElement;
          if (priElement == front)
             front = front.getLink();
-         else if (priElement.getLink() == null)
+         else if (priElement == rear)
             previous.setLink(null);
          else
-            previous.setLink(priElement.getLink());
+            previous.setLink(previous.getLink().getLink());
          
          numElements--;
 
