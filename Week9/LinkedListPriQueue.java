@@ -4,16 +4,21 @@ import java.util.Comparator;
 public class LinkedListPriQueue<T> implements PriQueueInterface<T>
 {
 
-   public LLNode<T> front;
-   protected LLNode<T> rear;
+   public LLNode<T> front = null;
+   protected LLNode<T> rear = null;
    protected int numElements = 0;
-   // protected Comparator<T> comp; Need to REMOVE this after adding compare
+   protected Comparator<T> comp;
    
    public LinkedListPriQueue()
-   {
-      front = null;
-      rear = null;
-   }
+{
+    comp = new Comparator<T>()
+    {
+       public int compare(T element1, T element2)
+       {
+         return ((Comparable)element1).compareTo(element2);
+       }
+    };
+  }
    
    public void enqueue(T element) 
    {
@@ -41,13 +46,44 @@ public class LinkedListPriQueue<T> implements PriQueueInterface<T>
    if (isEmpty())
          throw new PriQUnderflowException("Dequeue attempted on empty queue.");
       else
-      {
-         T element = front.getInfo();
-         front = front.getLink();
-         if (front == null)
-            rear = null;
+      {  
+         LLNode<T> priElement = front;
+         LLNode<T> previous = front;
+         LLNode<T> temp = null;
+         LLNode<T> node = front;
+         for (int i = 1; i < numElements - 1; i++)
+         {
+            if (comp.compare(node.getInfo(), node.getLink().getInfo()) > 0)
+            {
+               priElement = node;
+               previous = node;            
+               node = node.getLink();
+            }
+            else 
+            {
+               previous = node;
+               node = node.getLink();
+            }
+          }     
+         temp = priElement;
+         if (priElement == front)
+            front = front.getLink();
+         else if (priElement.getLink() == null)
+            previous.setLink(null);
+         else
+            previous.setLink(priElement.getLink());
+         
          numElements--;
-         return element;
+
+         return temp.getInfo();
+      
+      
+//          T element = front.getInfo();
+//          front = front.getLink();
+//          if (front == null)
+//             rear = null;
+//          numElements--;
+//          return element;
          // Above code needs to remove not front but highest priority
       }
 
@@ -84,11 +120,12 @@ public class LinkedListPriQueue<T> implements PriQueueInterface<T>
    public void printPriQ() // Traverse and print the queue
    {
       LLNode<T> currNode = front;
-      while (currNode != null)
+      while (currNode.getLink() != null)
       {
          System.out.print(currNode.getInfo());
          currNode = currNode.getLink();
       }
+         System.out.print(currNode.getInfo()); // Sloppy but prints last node
       
    } // end printPriQ
   

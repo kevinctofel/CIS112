@@ -16,7 +16,7 @@ public class UseLLPriQ
     pq.enqueue("P");   pq.enqueue("U");   pq.enqueue("T");
     pq.enqueue("E");   pq.enqueue("R");
    
-    // print queue (note: added this to Interface just for LL purposes)
+    // print queue 
     pq.printPriQ();
 
     System.out.println("\n"+ pq.dequeue().toString());
