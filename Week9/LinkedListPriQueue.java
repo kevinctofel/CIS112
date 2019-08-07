@@ -4,7 +4,7 @@ import java.util.Comparator;
 public class LinkedListPriQueue<T> implements PriQueueInterface<T>
 {
 
-   protected LLNode<T> front;
+   public LLNode<T> front;
    protected LLNode<T> rear;
    protected int numElements = 0;
    // protected Comparator<T> comp; Need to REMOVE this after adding compare
@@ -21,7 +21,6 @@ public class LinkedListPriQueue<T> implements PriQueueInterface<T>
    // otherwise, adds element to this priority queue.
    
       LLNode<T> newNode = new LLNode<T>(element);
-      rear.setLink(newNode);
    
       if (rear == null)
          front = newNode;
@@ -81,5 +80,16 @@ public class LinkedListPriQueue<T> implements PriQueueInterface<T>
       return numElements;
       
    } // end size
+   
+   public void printPriQ() // Traverse and print the queue
+   {
+      LLNode<T> currNode = front;
+      while (currNode != null)
+      {
+         System.out.print(currNode.getInfo());
+         currNode = currNode.getLink();
+      }
+      
+   } // end printPriQ
   
 } // end LinkedListPriQueue

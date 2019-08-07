@@ -29,5 +29,8 @@ public interface PriQueueInterface<T>
  
   int size();
   // Returns the number of elements in this priority queue.
+  
+  void printPriQ();
+  // Added to print contents of linked list queue.
 }
 
