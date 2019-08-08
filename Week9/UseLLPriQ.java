@@ -10,7 +10,7 @@ public class UseLLPriQ
 {
   public static void main(String[] args)
   { 
-    PriQueueInterface<String> pq = new LinkedListPriQueue<String>();
+    PriQueueInterface<String> pq = new SortedLLPriQueue<String>();
     
     pq.enqueue("C");   pq.enqueue("O");   pq.enqueue("M");
     pq.enqueue("P");   pq.enqueue("U");   pq.enqueue("T");
