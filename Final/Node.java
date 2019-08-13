@@ -1,6 +1,5 @@
 import java.util.* ; 
 
-
 public class Node<T>  
 { 
    public T info;             // The node info
