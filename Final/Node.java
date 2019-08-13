@@ -1,11 +1,11 @@
 import java.util.* ; 
 
 
-public class Node<T> 
+public class Node<T>  
 { 
-   private T info;                // The node info
-   private Node<T> left;       // A link to the left child node
-   private Node<T> right;      // A link to the right child node
+   public T info;             // The node info
+   public Node<T> left;       // A link to the left child node
+   public Node<T> right;      // A link to the right child node
 
    public Node(T info)
    {
